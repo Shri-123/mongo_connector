@@ -48,7 +48,7 @@ app.post('/api/upload', upload.single('document'), async (req, res) => {
     const prompt = req.body.prompt;
     const file = req.file;
 
-    if (!prompt && !file) {
+    if (!prompt || !file) {
       return res.status(400).json({ error: "Prompt or document is required." });
     }
 
